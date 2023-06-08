@@ -15,20 +15,20 @@ class PhotoSeeder extends Seeder
     {
         Photo::create([
             'user_id' => 1,
-            'title' => 'Przykładowy tytuł',
-            'description' => 'Przykładowy opis',
-            'price' => 9.99,
-            'image' => 'przykladowy_obraz.jpg',
+            'title' => 'Rzeka',
+            'description' => 'Płótno, olej, 35cmx50cm',
+            'price' => 100,
+            'image' => 'product.jpg',
             'sold' => false,
             'approved' => true,
         ]);
 
         Photo::create([
             'user_id' => 1,
-            'title' => 'Przykładowy tytuł',
-            'description' => 'Przykładowy opis',
-            'price' => 9.99,
-            'image' => 'przykladowy_obraz.jpg',
+            'title' => 'Leszy',
+            'description' => 'Płótno, akryl, 35 x 50 cm',
+            'price' => 100,
+            'image' => 'product5.jpg',
             'sold' => false,
             'approved' => true,
         ]);

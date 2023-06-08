@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('photos', function (Blueprint $table) {
-            $table->id('id_photo');
-            $table->foreignId('user_id')->constrained('users', 'id_user');
+            $table->id('id');
+            $table->foreignId('user_id')->constrained('users', 'id');
             $table->string('title');
             $table->text('description')->nullable();
             $table->decimal('price', 8, 2);

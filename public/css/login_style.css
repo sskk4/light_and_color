@@ -1,0 +1,102 @@
+.login_panel
+{
+    animation:opacitychange 3s;
+    width:25%;
+    height: 500px;
+    background:linear-gradient(#354430,#293325) no-repeat fixed center;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:100px;
+    border-radius:50px;
+    text-align:center;
+     margin: 0;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition:0.5s;
+}
+
+.login_panel_p
+{
+   margin-top:15%;
+   font-size:20px;
+}
+
+.login_input
+{
+margin-bottom:10px;
+text-align: center;
+background:linear-gradient(to top left,#40513B,#5a6c55) no-repeat fixed center;
+height: 30px;
+border:solid #354430 1px;
+color:#c8e7c0;
+border-radius:60px;
+
+}
+
+textarea:focus, input:focus{
+    outline: none;
+    box-shadow: 0 0 3px #c2d7bc;
+}
+
+.login_button
+{
+    cursor:pointer;
+    border-radius:100px;
+    width:100px;
+    border:solid #354430 1px;
+    height: 50px;
+    background-color:#40513B;
+    margin:20px;
+    color:#a6c39f;
+    font-weight: bold;
+    transition:0.5s;
+}
+
+.login_button:hover
+{
+    background-color:#5a6c55;
+}
+
+a
+{
+    color:#96ad90;
+    text-decoration: none;
+    
+}
+
+.text_a
+{
+    font-size:15px;
+   
+    
+}
+
+.sign_a
+{
+    color:#c2d7bc;
+    transition:0.5s;
+}
+
+.sign_a:hover
+{
+    color:#dae6d7;
+   
+}
+
+.text_p
+{
+    color:#dcead9;
+}
+
+
+@media screen and (max-width: 1503px)
+{
+    .login_panel{width:50%; margin-top:10%;};
+}
+
+@media screen and (max-width: 770px)
+{
+    .login_panel{width:100%; border-radius:0;};
+}

@@ -24,10 +24,10 @@
 
 
     <div class="choose_container">
-        <a class="menu_choose" href="{{route('store.index')}}"> Store </a>
+        <a class="menu_choose" href="{{route('store')}}"> Store </a>
         <a class="menu_choose" > Support </a>
         <a class="menu_choose"> About us </a>
-        <a class="menu_choose" href="{{route('login.index')}}"> Sign in </a>
+        <a class="menu_choose" href="{{route('login')}}"> Sign in </a>
     </div>
     </div>
 

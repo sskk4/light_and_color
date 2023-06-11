@@ -31,124 +31,16 @@
 
     <div class="store_main_container">
 
-        <div class="item" onclick="window.location.href='product.html'"><img class="photo" src="img/product.jpg" alt="Przedmiot 1">
-
+        @foreach($products as $item)
+        <div class="item" onclick="window.location.href='product.html'">
+            <img class="photo" src="{{ asset('img/' . $item->image  ) }}" alt="{{ $item->title }}">
             <div class="item-body">
-                <h2 class="title">Tytuł produktu</h2>
-                <p class="price">$9.99</p>
+                <h2 class="title">{{ $item->title }}</h2>
+                <p class="price">${{ $item->price }}</p>
                 <button class="buy-button">Kup</button>
             </div>
         </div>
-
-        <div class="item" onclick="window.location.href='product.html'"><img class="photo" src="img/product5.jpg" alt="Przedmiot 1">
-
-            <div class="item-body">
-                <h2 class="title">Tytuł produktu</h2>
-                <p class="price">$9.99</p>
-                <button class="buy-button">Kup</button>
-            </div>
-        </div>
-
-        <div class="item" onclick="window.location.href='product.html'"><img class="photo" src="img/product6.jpg" alt="Przedmiot 1">
-
-            <div class="item-body">
-                <h2 class="title">Tytuł produktu</h2>
-                <p class="price">$9.99</p>
-                <button class="buy-button">Kup</button>
-            </div>
-        </div>
-
-
-        <div class="item" onclick="window.location.href='product.html'"><img class="photo" src="img/product4.jpg" alt="Przedmiot 1">
-
-            <div class="item-body">
-                <h2 class="title">Tytuł produktu</h2>
-                <p class="price">$9.99</p>
-                <button class="buy-button">Kup</button>
-            </div>
-        </div>
-
-
-        <div class="item" onclick="window.location.href='product.html'"><img class="photo" src="img/product3.jpg" alt="Przedmiot 1">
-
-            <div class="item-body">
-                <h2 class="title">Tytuł produktu</h2>
-                <p class="price">$9.99</p>
-                <button class="buy-button">Kup</button>
-            </div>
-        </div>
-
-
-        <div class="item" onclick="window.location.href='product.html'"><img class="photo" src="img/product2.jpg" alt="Przedmiot 1">
-
-            <div class="item-body">
-                <h2 class="title">Tytuł produktu</h2>
-                <p class="price">$9.99</p>
-                <button class="buy-button">Kup</button>
-            </div>
-        </div>
-
-
-        <div class="item" onclick="window.location.href='product.html'"><img class="photo" src="img/product.jpg" alt="Przedmiot 1">
-
-            <div class="item-body">
-                <h2 class="title">Tytuł produktu</h2>
-                <p class="price">$9.99</p>
-                <button class="buy-button">Kup</button>
-            </div>
-        </div>
-
-
-        <div class="item" onclick="window.location.href='product.html'"><img class="photo" src="img/product.jpg" alt="Przedmiot 1">
-
-            <div class="item-body">
-                <h2 class="title">Tytuł produktu</h2>
-                <p class="price">$9.99</p>
-                <button class="buy-button">Kup</button>
-            </div>
-        </div>
-
-
-        <div class="item" onclick="window.location.href='product.html'"><img class="photo" src="img/product.jpg" alt="Przedmiot 1">
-
-            <div class="item-body">
-                <h2 class="title">Tytuł produktu</h2>
-                <p class="price">$9.99</p>
-                <button class="buy-button">Kup</button>
-            </div>
-        </div>
-
-
-        <div class="item" onclick="window.location.href='product.html'"><img class="photo" src="img/product.jpg" alt="Przedmiot 1">
-
-            <div class="item-body">
-                <h2 class="title">Tytuł produktu</h2>
-                <p class="price">$9.99</p>
-                <button class="buy-button">Kup</button>
-            </div>
-        </div>
-
-
-        <div class="item" onclick="window.location.href='product.html'"><img class="photo" src="img/product.jpg" alt="Przedmiot 1">
-
-            <div class="item-body">
-                <h2 class="title">Tytuł produktu</h2>
-                <p class="price">$9.99</p>
-                <button class="buy-button">Kup</button>
-            </div>
-        </div>
-
-
-        <div class="item" onclick="window.location.href='product.html'"><img class="photo" src="img/product.jpg" alt="Przedmiot 1">
-
-            <div class="item-body">
-                <h2 class="title">Tytuł produktu</h2>
-                <p class="price">$9.99</p>
-                <button class="buy-button">Kup</button>
-            </div>
-        </div>
-
-
+    @endforeach
 
     </div>
 

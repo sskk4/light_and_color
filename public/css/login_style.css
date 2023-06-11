@@ -17,6 +17,11 @@
   transition:0.5s;
 }
 
+.register_panel
+{
+    background:linear-gradient(#354430,#293325) no-repeat fixed center;
+}
+
 .login_panel_p
 {
    margin-top:15%;
@@ -33,6 +38,11 @@ border:solid #354430 1px;
 color:#c8e7c0;
 border-radius:60px;
 
+}
+
+.register_input
+{
+    background:linear-gradient(to top left,#567d4a,#4e6846) no-repeat fixed center;
 }
 
 textarea:focus, input:focus{
@@ -54,6 +64,11 @@ textarea:focus, input:focus{
     transition:0.5s;
 }
 
+.register_button
+{
+    width:170px;
+    background-color:#445e3b;
+}
 .login_button:hover
 {
     background-color:#5a6c55;
@@ -63,14 +78,14 @@ a
 {
     color:#96ad90;
     text-decoration: none;
-    
+
 }
 
 .text_a
 {
     font-size:15px;
-   
-    
+
+
 }
 
 .sign_a
@@ -82,7 +97,7 @@ a
 .sign_a:hover
 {
     color:#dae6d7;
-   
+
 }
 
 .text_p

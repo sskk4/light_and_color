@@ -8,8 +8,8 @@
 
 
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/login_style.css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/login_style.css') }}">
 
 </head>
 <body>
@@ -39,7 +39,7 @@
             <a class="text_p"> E-mail </a><br> <input type="text" class="login_input" /><br>
             <a class="text_p"> Password</a><br> <input type="password" class="login_input" /><br>
             <input type="button" class="login_button" value="LOGIN"/> <br>
-            <a class="text_a"> Don't have an account? <a href='signup.html' class="sign_a"> Sign up! </a> </a>
+            <a class="text_a"> Don't have an account? <a href='{{route('register')}}' class="sign_a"> Sign up! </a> </a>
         </div>
 
         </div>

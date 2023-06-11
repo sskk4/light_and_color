@@ -5,7 +5,7 @@
 
 <h1 align="center" id="title">Light and Color</h1>
 
-<p align="center"><img src="https://github.com/sskk4/light_and_color/blob/master/resources/img/logo2.png?raw=true" alt="project-image"></p>
+<p align="center"><img src="https://github.com/sskk4/light_and_color/blob/master/public/img/logo2.png?raw=true" alt="project-image"></p>
 
 
 

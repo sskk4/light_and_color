@@ -16,7 +16,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\AuthController;
 
-Route::get('/store', [StoreController::class, 'index'])->name('store');
+
+Route::controller(StoreController::class)->group(function() {
+    Route::get('/store','index')->name('store');
+    Route::get('/product/{id}', 'show')->name('product');
+});
+
 
 
 
@@ -29,7 +34,8 @@ Route::get('/', function () {
 
 Route::controller(AuthController::class)->group(function () {
     Route::get('/login', 'login')->name('login');
+    Route::post('/login', 'loginPost')->name('login');
     Route::get('/register', 'register')->name('register');
     Route::post('/register', 'registerPost')->name('register');
-
+    Route::get('/logout', 'logout')->name('logout');
 });

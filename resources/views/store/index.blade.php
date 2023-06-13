@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Light&Color</title>
 
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/store_style.css') }}">
+@include('shared.header')
 
-</head>
 <body>
 
 <div class="container">
 
-    <div class="menu_container">
+    @include('shared.navbar')
 
-        <div class="logo_container">
-            <a class="menu_logo" href="{{route('home')}}"> LIGHT & COLOR</a>
+    <div class="top_bar">
+        <div class="top_bar_left">
+          <div class="search-wrapper">
+            <form onsubmit="event.preventDefault();" role="search">
+              <input class="search" type="search" placeholder="Search..." autofocus required />
+              <button type="submit" class='search_button'>Go</button>
+            </form>
+          </div>
+          <select>
+            <option value="name">Sort by</option>
+            <option value="low_price">Low price</option>
+            <option value="max_price">High price</option>
+            <option value="date">Newest</option>
+            <option value="date">Oldest</option>
+            <option value="date">Most rated</option>
+          </select>
         </div>
 
-
-    <div class="choose_container">
-        <a class="menu_choose menu_active"> Store </a>
-
-        <a class="menu_choose"> Sign in </a>
-    </div>
-    </div>
+        <div class="top_bar_right">
+          <button class="add-product-button">Add product</button>
+        </div>
+      </div>
 
     <div class="store_main_container">
 
+
+
+
         @foreach($products as $item)
-        <div class="item" onclick="window.location.href='product.html'">
+        <div class="item">
             <img class="photo" src="{{ asset('img/' . $item->image  ) }}" alt="{{ $item->title }}">
             <div class="item-body">
                 <h2 class="title">{{ $item->title }}</h2>
                 <p class="price">${{ $item->price }}</p>
-                <button class="buy-button">Kup</button>
+                <button class="buy-button" onclick="window.location.href='{{route('product', ['id' => $item->id])}}'">Buy</button>
             </div>
         </div>
     @endforeach

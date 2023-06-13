@@ -81,6 +81,15 @@ a
 
 }
 
+.alert
+{
+    background:linear-gradient(to top left,#7d584a,#685146) no-repeat fixed center;
+    margin:20px;
+    height: 30px;
+    border-radius:100px;
+
+}
+
 .text_a
 {
     font-size:15px;

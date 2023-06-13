@@ -18,4 +18,11 @@ class StoreController extends Controller
     {
         return $this->hasMany(Photo::class);
     }
+
+    public function show($id)
+    {
+        return view('store.product', [
+            'p' => Photo::findOrFail($id)
+        ]);
+    }
 }

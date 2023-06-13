@@ -1,35 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Light&Color</title>
 
+@include('shared.header')
 
-
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
-</head>
 <body>
 
 <div class="container">
 
-    <div class="menu_container">
 
-        <div class="logo_container">
-            <a class="menu_logo" href="{{route('home')}}"> LIGHT & COLOR</a>
-        </div>
+@include('shared.navbar')
 
-
-    <div class="choose_container">
-        <a class="menu_choose" href="{{route('store')}}"> Store </a>
-        <a class="menu_choose" > Support </a>
-        <a class="menu_choose"> About us </a>
-        <a class="menu_choose" href="{{route('login')}}"> Sign in </a>
-    </div>
-    </div>
 
     <div class="main_container">
 

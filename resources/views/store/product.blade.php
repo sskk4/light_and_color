@@ -15,7 +15,7 @@
 
         <div class="product">
            <div class="product_image">
-            <img src="{{asset ('img/'. $p->image)}}" class="photo_p" alt="Zdjęcie produktu" onclick="showImage(this)">
+            <img src="{{asset ('storage/images/'. $p->image)}}" class="photo_p" alt="Zdjęcie produktu" onclick="showImage(this)">
            </div>
 
            <div class="heart"></div>
@@ -24,7 +24,7 @@
             <h2>{{$p->title}}</h2>
             <p class="price">Price: <a class="price_name"> ${{$p->price}} </a></p>
             <p class="author">Added by: <a class="author_name"> {{$p->user_id}} </a> </p>
-            <p class="date"> Date: <a class="author_name"> {{$p->created_at}} </p>
+            <p class="author"> Date: <a class="author_name"> {{$p->created_at}} </p>
             <p class="description">Description: <a class="author_name"> {{$p->description}}</a> </p>
 
                   <button class="buy_button">Buy</button>

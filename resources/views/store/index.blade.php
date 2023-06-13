@@ -10,7 +10,12 @@
     @include('shared.navbar')
 
     <div class="top_bar">
+
         <div class="top_bar_left">
+            <button class="add-product-button">Old</button>
+          </div>
+
+        <div class="top_bar_middle">
           <div class="search-wrapper">
             <form onsubmit="event.preventDefault();" role="search">
               <input class="search" type="search" placeholder="Search..." autofocus required />
@@ -28,7 +33,12 @@
         </div>
 
         <div class="top_bar_right">
-          <button class="add-product-button">Add product</button>
+            @guest
+
+            @else
+            <button class="add-product-button" onclick='window.location.href="{{route("add_product")}}"'>Add </button>
+            @endguest
+
         </div>
       </div>
 
@@ -39,7 +49,7 @@
 
         @foreach($products as $item)
         <div class="item">
-            <img class="photo" src="{{ asset('img/' . $item->image  ) }}" alt="{{ $item->title }}">
+            <img class="photo" src="{{ asset('storage/images/' . $item->image  ) }}" alt="{{ $item->title }}">
             <div class="item-body">
                 <h2 class="title">{{ $item->title }}</h2>
                 <p class="price">${{ $item->price }}</p>

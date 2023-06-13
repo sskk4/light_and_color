@@ -56,6 +56,11 @@ return [
             'throw' => false,
         ],
 
+        'my_disk' => [
+            'driver' => 'local',
+            'root' => storage_path('app/images'),
+        ],
+
     ],
 
     /*

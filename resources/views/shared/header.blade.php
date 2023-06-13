@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Light&Color</title>
 
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,10 @@
 
 
 @if (str_contains(request()->path(), 'register') || str_contains(request()->path(), 'login')) <link rel="stylesheet" href="{{ asset('css/login_style.css') }}"> @endif
+
 @if (str_contains(request()->path(), 'store')) <link rel="stylesheet" href="{{ asset('css/store_style.css') }}">  @endif
+
+@if (str_contains(request()->path(), 'add')) <link rel="stylesheet" href="{{ asset('css/add_product_style.css') }}">  @endif
 
 @if (request()->is('product/*'))
 <link rel="stylesheet" href="{{ asset('css/product_style.css') }}">

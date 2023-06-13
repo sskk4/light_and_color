@@ -20,6 +20,8 @@ use App\Http\Controllers\AuthController;
 Route::controller(StoreController::class)->group(function() {
     Route::get('/store','index')->name('store');
     Route::get('/product/{id}', 'show')->name('product');
+    Route::get('/add','create')->name('add_product');
+    Route::post('/add','createPost')->name('add_product');
 });
 
 

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ProfileController;
 
 
 Route::controller(StoreController::class)->group(function() {
@@ -25,7 +26,11 @@ Route::controller(StoreController::class)->group(function() {
 });
 
 
+Route::controller(ProfileController::class)->group(function(){
 
+    Route::get('/profile','show')->name('profile');
+
+});
 
 Route::get('/', function () {
     return view('index');

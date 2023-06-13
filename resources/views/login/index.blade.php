@@ -1,25 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Light&Color</title>
-
-
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/login_style.css') }}">
-
-</head>
+    @include('shared.header')
 <body>
 
 <div class="container">
 
         @include('shared.navbar')
-
-    <div class="main_container">
-
 
         <div class="login_panel">
             <div class="login_panel_p">
@@ -43,7 +29,7 @@
 
         </div>
         </div>
-    </div>
+
 
     <div class="bottom_container"> Sebastian Kolański © 2023 </div>
 </div>

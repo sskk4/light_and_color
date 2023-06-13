@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+
 
     public function register()
     {
@@ -23,8 +25,9 @@ class AuthController extends Controller
     }
 
 
-    public function registerPost(Request $request)
+    public function registerPost(RegisterUserRequest $request)
     {
+
         $user = new User();
 
         $user->name = $request->name;
@@ -33,7 +36,7 @@ class AuthController extends Controller
 
         $user->save();
 
-       return back()->with('success', 'Register successfully');
+       return back()->with('success', 'Register successfully!');
 
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AddProductRequest;
 use App\Models\Photo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,8 +34,10 @@ class StoreController extends Controller
         return view('store.create');
     }
 
-    public function createPost(Request $request)
+    public function createPost(AddProductRequest $request)
 {
+
+
     $title = $request->input('title');
     $price = $request->input('price');
     $description = $request->input('description');
@@ -46,7 +49,7 @@ class StoreController extends Controller
         $imageName = time() . '_' . Str::random(10) . '.' . $image->getClientOriginalExtension();
         $image->move(storage_path('app/public/images'), $imageName);
     } else {
-        $imagePath = null;
+        $imageName = null;
     }
 
     $product = new Photo;

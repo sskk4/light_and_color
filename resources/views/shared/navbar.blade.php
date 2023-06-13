@@ -10,7 +10,7 @@
 
         @else
             <a class="menu_choose" href=""> Favorite </a>
-            <a class="menu_choose" href=""> Profile </a>
+            <a class="menu_choose" href="{{ route('profile') }}"> Profile </a>
             <a class="menu_choose" href="{{ route('logout') }}">Logout</a>
         @endguest
     </div>

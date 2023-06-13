@@ -15,6 +15,12 @@
         <div class="add_product_panel">
             <div class="product_panel_p">
 
+         @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                <div class="alert"> {{ $error }} </div>
+                @endforeach
+    @endif
+
                 @if(Session::has('error'))
 
                 <div class='alert'>
@@ -22,7 +28,13 @@
                 </div>
 
                 @endif
+                @if(Session::has('success'))
 
+                <div class='alert alert_green'>
+                {{Session::get('success')}}
+                </div>
+
+                @else
                 <h2> Add product </h2>
 
 <form action="{{route('add_product')}}" method="POST" enctype="multipart/form-data">
@@ -36,6 +48,7 @@
             <input type="submit" class="add_product_button" value="Submit"/> <br>
 
 </form>
+@endif
         </div>
         </div>
     <div class="bottom_container bottom_color"> Sebastian Kolański © 2023 </div>

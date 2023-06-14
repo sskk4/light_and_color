@@ -17,6 +17,8 @@
 
 @if (str_contains(request()->path(), 'add')) <link rel="stylesheet" href="{{ asset('css/add_product_style.css') }}">  @endif
 
+@if (str_contains(request()->path(), 'profile')) <link rel="stylesheet" href="{{ asset('css/profile_style.css') }}">  @endif
+
 @if (request()->is('product/*'))
 <link rel="stylesheet" href="{{ asset('css/product_style.css') }}">
 <script src="{{ asset('js/script.js') }}"></script>

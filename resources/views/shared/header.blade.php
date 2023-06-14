@@ -7,17 +7,19 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
 
 
 @if (str_contains(request()->path(), 'register') || str_contains(request()->path(), 'login')) <link rel="stylesheet" href="{{ asset('css/login_style.css') }}"> @endif
 
-@if (str_contains(request()->path(), 'store')) <link rel="stylesheet" href="{{ asset('css/store_style.css') }}">  @endif
+@if (str_contains(request()->path(), 'products')) <link rel="stylesheet" href="{{ asset('css/market_style.css') }}">  @endif
 
-@if (str_contains(request()->path(), 'add')) <link rel="stylesheet" href="{{ asset('css/add_product_style.css') }}">  @endif
+@if (str_contains(request()->path(), 'products/create')) <link rel="stylesheet" href="{{ asset('css/add_product_style.css') }}">  @endif
 
 @if (str_contains(request()->path(), 'profile')) <link rel="stylesheet" href="{{ asset('css/profile_style.css') }}">  @endif
+
+@if (str_contains(request()->path(), 'profile/edit')) <link rel="stylesheet" href="{{ asset('css/profile_edit_style.css') }}">  @endif
 
 @if (request()->is('product/*'))
 <link rel="stylesheet" href="{{ asset('css/product_style.css') }}">

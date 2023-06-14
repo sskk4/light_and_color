@@ -3,41 +3,44 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AddProductRequest;
-use App\Models\Photo;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
-class StoreController extends Controller
+class MarketController extends Controller
 {
     public function index()
     {
-        $products = Photo::all();
+        $products = Product::all();
 
-        return view('store.index', compact('products'));
+        return view('market.index', compact('products'));
     }
 
     public function products()
     {
-        return $this->hasMany(Photo::class);
+        return $this->hasMany(Product::class);
     }
 
     public function show($id)
     {
-        return view('store.product', [
-            'p' => Photo::findOrFail($id)
+        return view('market.product', [
+            'p' => Product::findOrFail($id)
         ]);
     }
 
     public function create()
     {
-        return view('store.create');
+        if(Auth::check())
+        {
+            return view('market.create');
+        }
+
+        return redirect()->route('login');
     }
 
     public function createPost(AddProductRequest $request)
 {
-
-
     $title = $request->input('title');
     $price = $request->input('price');
     $description = $request->input('description');
@@ -52,7 +55,7 @@ class StoreController extends Controller
         $imageName = null;
     }
 
-    $product = new Photo;
+    $product = new Product;
     $product->user_id = $user_id;
     $product->title = $title;
     $product->description = $description;
@@ -60,7 +63,7 @@ class StoreController extends Controller
     $product->image = $imageName;
     $product->save();
 
-    return redirect()->back()->with('success', 'Product added successfully');
+    return redirect()->back()->with('success', 'Product added successfully!');
 }
 
 }

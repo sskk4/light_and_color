@@ -61,7 +61,8 @@ html, body {
   }
 
   .date_text {
-    font-size: 14px;
+    font-size: 14px!important;
+    color: #7c8b78!important;
   }
 
   .bar_button
@@ -104,3 +105,90 @@ html, body {
   {
     background-color:#5a6c55;
   }
+
+  .item {
+    flex-basis: 25%;
+    margin: 10px;
+    min-width: 0px;
+    min-height: 500px;
+    padding:20px;
+    border-radius: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .photo {
+    width: 80%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .button_products
+  {
+    cursor:pointer;
+    width:100px;
+    border-radius:100px;
+    height: 30px;
+    margin-top:5px;
+    font-weight: bold;
+    transition:0.5s;
+  }
+
+  .button_products:hover
+  {
+    filter: brightness(1.2);
+  }
+
+  .edit-button
+  {
+    color:#20281e;
+    background-color:#f8ba45;
+    border:solid #dda53d 1px;
+  }
+
+  .delete-button
+  {
+    color:#20281e;
+    background-color:#e44922;
+    border:solid #a93518 1px;
+  }
+
+  .check-button
+  {
+    background-color:#228de4;
+    border:solid #216890 1px;
+  }
+
+
+  @media screen and (max-width: 770px) {
+    .item:nth-child(2n+1) {
+      clear: both;
+    }
+
+    .item {
+      flex-basis: 50%;
+      min-height: auto;
+      padding: 5px;
+    }
+
+    .photo {
+      width: 100%;
+      height: auto;
+      margin-bottom: 5px;
+    }
+
+    .title {
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .price {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+
+
+}

@@ -4,7 +4,7 @@
     </div>
 
     <div class="choose_container">
-        <a class="menu_choose @if (str_contains(request()->path(), 'store')) menu_active @endif" href="{{ route('store') }} ">Store</a>
+        <a class="menu_choose @if (str_contains(request()->path(), 'products')) menu_active @endif" href="{{ route('products') }} ">Store</a>
         @guest
         <a class="menu_choose @if (str_contains(request()->path(), 'register') || str_contains(request()->path(), 'login')) menu_active @endif" href="{{ route('login') }}">Sign in</a>
 

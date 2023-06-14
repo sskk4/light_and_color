@@ -44,9 +44,6 @@
 
     <div class="store_main_container">
 
-
-
-
         @foreach($products as $item)
         <div class="item">
             <img class="photo" src="{{ asset('storage/images/' . $item->image  ) }}" alt="{{ $item->title }}">

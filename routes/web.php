@@ -13,22 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Http\Controllers\StoreController;
+use App\Http\Controllers\MarketController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 
 
-Route::controller(StoreController::class)->group(function() {
-    Route::get('/store','index')->name('store');
+Route::controller(MarketController::class)->group(function() {
+    Route::get('/products','index')->name('products');
     Route::get('/product/{id}', 'show')->name('product');
-    Route::get('/add','create')->name('add_product');
-    Route::post('/add','createPost')->name('add_product');
+    Route::get('/products/create','create')->name('add_product');
+    Route::post('/products/create','createPost')->name('add_product');
 });
 
 
 Route::controller(ProfileController::class)->group(function(){
 
     Route::get('/profile','show')->name('profile');
+    Route::get('/profile/edit','update')->name('profile_update');
 
 });
 

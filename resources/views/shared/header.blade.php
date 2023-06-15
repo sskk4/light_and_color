@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Light&Color</title>
 
+    @csrf
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,11 +19,13 @@
 
 @if (str_contains(request()->path(), 'products/create')) <link rel="stylesheet" href="{{ asset('css/add_product_style.css') }}">  @endif
 
+@if (str_contains(request()->path(), 'products/buy')) <link rel="stylesheet" href="{{ asset('css/buy_product_style.css') }}">  @endif
+
 @if (str_contains(request()->path(), 'profile')) <link rel="stylesheet" href="{{ asset('css/profile_style.css') }}">  @endif
 
 @if (str_contains(request()->path(), 'profile/edit')) <link rel="stylesheet" href="{{ asset('css/profile_edit_style.css') }}">  @endif
 
-@if (request()->is('product/*'))
+@if (request()->is('products/*'))
 <link rel="stylesheet" href="{{ asset('css/product_style.css') }}">
 <script src="{{ asset('js/script.js') }}"></script>
 @endif

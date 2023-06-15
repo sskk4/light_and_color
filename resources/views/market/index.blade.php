@@ -9,17 +9,19 @@
 
     @include('shared.navbar')
 
-    <div class="top_bar">
+    <div class=" @if (request()->is('products/old'))dark_top_bar @endif top_bar">
 
         <div class="top_bar_left">
-            <button class="add-product-button">Old</button>
+
+            @if (request()->is('products'))<button class="add-product-button" onclick='window.location.href="{{route("old_products")}}"'>Sold</button> @endif
+            @if (request()->is('products/old'))<button class=" blue_dark add-product-button" onclick='window.location.href="{{route("products")}}"'>Buy</button> @endif
           </div>
 
         <div class="top_bar_middle">
           <div class="search-wrapper">
             <form onsubmit="event.preventDefault();" role="search">
               <input class="search" type="search" placeholder="Search..." autofocus required />
-              <button type="submit" class='search_button'>Go</button>
+              <button type="submit" class='@if (request()->is('products/old')) blue_dark @endif search_button'>Go</button>
             </form>
           </div>
           <select>
@@ -36,21 +38,25 @@
             @guest
 
             @else
-            <button class="add-product-button" onclick='window.location.href="{{route("add_product")}}"'>Add </button>
+            @if (request()->is('products')) <button class="add-product-button" onclick='window.location.href="{{route("add_product")}}"'>Add </button> @endif
             @endguest
 
         </div>
       </div>
 
-    <div class="store_main_container">
+    <div class="@if (request()->is('products/old'))dark @endif store_main_container">
+
+        @if (request()->is('products/old')) <h1 > Archive </h1> @endif
 
         @foreach($products as $item)
         <div class="item">
             <img class="photo" src="{{ asset('storage/images/' . $item->image  ) }}" alt="{{ $item->title }}">
             <div class="item-body">
-                <h2 class="title">{{ $item->title }}</h2>
-                <p class="price">${{ $item->price }}</p>
-                <button class="buy-button" onclick="window.location.href='{{route('product', ['id' => $item->id])}}'">Buy</button>
+                <h2 class="dark_text title">{{ $item->title }}</h2>
+                @if (request()->is('products'))<p class="price">${{ $item->price }}</p>@endif
+                @if (request()->is('products'))<button class="buy-button" onclick="window.location.href='{{route('product', ['id' => $item->id])}}'">Buy</button> @endif
+                @if (request()->is('products/old'))<button class="check-button" onclick="window.location.href='{{route('product', ['id' => $item->id])}}'">Check</button> @endif
+
             </div>
         </div>
     @endforeach

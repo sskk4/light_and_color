@@ -16,15 +16,26 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MarketController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\RatedController;
 
 Route::controller(MarketController::class)->group(function() {
-    Route::get('/products','index')->name('products');
-    Route::get('/product/{id}', 'show')->name('product');
+
+    Route::get('/products/old','show_old')->name('old_products');
     Route::get('/products/create','create')->name('add_product');
+    Route::get('/products','index')->name('products');
+    Route::get('/products/{id}', 'show')->name('product');
     Route::post('/products/create','createPost')->name('add_product');
+    Route::get('/products/buy/{id}','buy')->name('buy_product');
+    Route::post('/products/buy/{id}','buyPost')->name('buy_product');
+
 });
 
+Route::controller(RatedController::class)->group(function(){
+
+    Route::post('/products/{id}/like', 'create')->name('add_like');
+    Route::delete('/products/{id}/dislike', 'delete')->name('delete_like');
+
+});
 
 Route::controller(ProfileController::class)->group(function(){
 

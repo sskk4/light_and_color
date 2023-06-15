@@ -4,6 +4,7 @@ html, body {
   }
 
 .profile_main_container {
+    text-align:center;
     animation:opacitychange 2.5s;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -134,6 +135,25 @@ html, body {
     margin-top:5px;
     font-weight: bold;
     transition:0.5s;
+  }
+
+  .add-button
+  {
+    cursor:pointer;
+    color:rgb(238, 238, 253);
+    width:150px;
+    border-radius:100px;
+    height: 40px;
+    margin-top:5px;
+    font-weight: bold;
+    transition:0.5s;
+    background-color:#3e97e0;
+    border:solid #216890 1px;
+  }
+
+  .add-button:hover
+  {
+    background-color:#2f7ebf;
   }
 
   .button_products:hover

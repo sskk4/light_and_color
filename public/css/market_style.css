@@ -21,6 +21,31 @@ html, body {
     margin:0;
   }
 
+  .dark
+  {
+    background: linear-gradient(to right, #a6a6a6, #efefef);
+  }
+
+.dark_top_bar
+{
+    background: linear-gradient(to right, #898787, #979696)!important;
+}
+
+.blue_dark
+{
+background-color: #44466a!important;
+}
+
+.blue_dark:hover
+{
+    background-color: #313235!important;
+}
+
+.dark_text
+{
+    color:#222!important;
+}
+
 
 .item {
     flex-basis: 25%;
@@ -68,6 +93,25 @@ html, body {
     transition:0.5s;
 
   }
+
+  .check-button {
+    padding: 8px 16px;
+     background-color:#2e2f45;
+     color: #fff;
+     border: none;
+     border-radius: 20px;
+     cursor: pointer;
+     transition:0.5s;
+  }
+
+
+  h1
+  {
+    color:rgb(37, 35, 35);
+  }
+  .check-button:hover {
+    background-color:#44466a;
+ }
 
   .buy-button:hover {
     background-color: #45a049;

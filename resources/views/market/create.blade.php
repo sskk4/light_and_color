@@ -30,9 +30,13 @@
                 @endif
                 @if(Session::has('success'))
 
-                <div class='alert alert_green'>
+                <div class='alert alert_green'>   </div>
+
+
+
                 {{Session::get('success')}}
-                </div>
+
+
 
                 @else
                 <h2> Add product </h2>

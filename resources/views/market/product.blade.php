@@ -18,8 +18,13 @@
             <img src="{{asset ('storage/images/'. $p->image)}}" class="photo_p" alt="Zdjęcie produktu" onclick="showImage(this)">
            </div>
 
+
+
+
            @csrf
-           <div class="heart @if (App\Models\Rated::where('product_id', $p->id)->where('user_id', auth()->user()->id)->exists()) is-active @endif"></div>
+           @if (!auth()->guest())
+               <div class="heart @if (App\Models\Rated::where('product_id', $p->id)->where('user_id', auth()->user()->id)->exists()) is-active @endif"></div>
+           @endif
 
 
 

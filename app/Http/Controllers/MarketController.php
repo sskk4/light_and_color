@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddProductRequest;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -13,7 +14,12 @@ class MarketController extends Controller
 {
     public function index()
     {
-        $products = Product::where('sold', 0)->get();
+        if (auth()->check()) {
+            $userId = auth()->user()->id;
+            $products = Product::where('sold', 0)->where('user_id', '!=', $userId)->get();
+        } else {
+            $products = Product::where('sold', 0)->get();
+        }
 
         return view('market.index', compact('products'));
     }
@@ -27,10 +33,14 @@ class MarketController extends Controller
 
     public function show($id)
     {
-        return view('market.product', [
-            'p' => Product::findOrFail($id)
-        ]);
+        $product = Product::with('user')->findOrFail($id);
+
+    return view('market.product', [
+        'p' => $product
+    ]);
     }
+
+
 
     public function show_old()
     {

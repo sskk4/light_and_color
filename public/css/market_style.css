@@ -21,9 +21,26 @@ html, body {
     margin:0;
   }
 
+  .justify
+  {
+    text-align:justify!important;
+    background: linear-gradient(to right, #dccebf, #d2caca);
+        padding:20px;
+        font-size:20px;
+    border-radius:10px;
+
+
+}
+
+.border
+
+{
+background-color: #efe7e7;
+    border-radius:50px!important;
+}
   .dark
   {
-    background: linear-gradient(to right, #a6a6a6, #efefef);
+    background: linear-gradient(to right, #a6a6a6, #b3b3b3);
   }
 
 .dark_top_bar
@@ -46,18 +63,28 @@ background-color: #44466a!important;
     color:#222!important;
 }
 
-
+.price2
+{
+    font-size:20px!important;
+    color:#233624;
+    margin:10px;
+}
 .item {
     flex-basis: 25%;
     margin: 10px;
-    min-width: 0px;
-    min-height: 500px;
+    min-width: 400px;
+    min-height: 400px;
     padding:20px;
     border-radius: 1%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
+
+  .date
+  {
+    color:#888!important;
   }
 
   .photo {
@@ -92,6 +119,22 @@ background-color: #44466a!important;
     cursor: pointer;
     transition:0.5s;
 
+  }
+
+  .edit_button
+  {
+    padding: 8px 16px;
+    background-color:#3f4572;
+   color: #fff;
+   border: none;
+   border-radius: 20px;
+   cursor: pointer;
+   transition:0.5s;
+  }
+
+  .edit_button:hover
+  {
+    background-color:#262a45;
   }
 
   .check-button {

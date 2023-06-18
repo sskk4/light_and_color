@@ -7,11 +7,17 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Admin;
 
 class AuthController extends Controller
 {
 
+    protected $guard = 'admin'; 
+
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
 
     public function register()
     {
@@ -42,17 +48,22 @@ class AuthController extends Controller
 
     public function loginPost(Request $request)
     {
-        $credetials = [
-                'email' => $request->email,
-                'password'=> $request->password,
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
         ];
-
-        if(Auth::attempt($credetials)){
+    
+        if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('home');
+    
+            return redirect()->route('admin');
+        } elseif (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+    
+            return redirect()->route('products');
         }
-
-        return back()->with('error','Wrong e-mail or password.');
+    
+        return back()->with('error', 'Wrong email or password.');
     }
 
     public function logout(Request $request)

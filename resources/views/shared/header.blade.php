@@ -25,6 +25,10 @@
 
 @if (str_contains(request()->path(), 'profile/edit')) <link rel="stylesheet" href="{{ asset('css/profile_edit_style.css') }}">  @endif
 
+@if (str_contains(request()->path(), 'work'))<link rel="stylesheet" href="{{ asset('css/market_style.css') }}">@endif
+
+@if (str_contains(request()->path(), 'work/create')) <link rel="stylesheet" href="{{ asset('css/add_product_style.css') }}">  @endif
+
 @if (request()->is('products/*'))
 <link rel="stylesheet" href="{{ asset('css/product_style.css') }}">
 <script src="{{ asset('js/script.js') }}"></script>

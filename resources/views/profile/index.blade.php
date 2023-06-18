@@ -34,25 +34,68 @@
 
     <div class="profile_main_container">
 
-        @if($products !== null && $products->count() > 0)
-        @foreach($products as $item)
-            <div class="item">
-                <img class="photo" src="{{ asset('storage/images/' . $item->image) }}" alt="{{ $item->title }}">
-                <div class="item-body">
-                    <h2 class="title">{{ $item->title }}</h2>
-                    <p class="price">${{ $item->price }}</p>
-                    <button class="edit-button button_products" onclick="window.location.href='{{ route('product', ['id' => $item->id]) }}'">Edit</button>
-                    <button class="delete-button button_products" onclick="window.location.href='{{ route('product', ['id' => $item->id]) }}'">Delete</button>
-                    <button class="check-button button_products" onclick="window.location.href='{{ route('product', ['id' => $item->id]) }}'">Check</button>
+        @if(isset($products))
+        @if($products->count() > 0)
+            @foreach($products as $item)
+                <div class="item">
+                    <img class="photo" src="{{ asset('storage/images/' . $item->image) }}" alt="{{ $item->title }}">
+                    <div class="item-body">
+                        <h2 class="title">{{ $item->title }}</h2>
+                        <p class="price">${{ $item->price }}</p>
+                        <button class="edit-button button_products" onclick="window.location.href='{{ route('product', ['id' => $item->id]) }}'">Edit</button>
+                        <button class="delete-button button_products" onclick="window.location.href='{{ route('product', ['id' => $item->id]) }}'">Delete</button>
+                        <button class="check-button button_products" onclick="window.location.href='{{ route('product', ['id' => $item->id]) }}'">Check</button>
+                    </div>
                 </div>
+            @endforeach
+        @else
+            <div class="empty">
+                <p>Nothing here?</p>
+                <button class="add-button" onclick="window.location.href='{{ route('add_product') }}'">Add Product</button>
             </div>
-        @endforeach
-    @else
-        <div class="empty">
-            <p>Nothing here?</p>
-            <button class="add-button" onclick="window.location.href='{{ route('add_product') }}'">Add Product</button>
-        </div>
+        @endif
+    @elseif(isset($products_sold))
+        @if($products_sold->count() > 0)
+            @foreach($products_sold as $item)
+                <div class="item">
+                    <img class="photo" src="{{ asset('storage/images/' . $item->image) }}" alt="{{ $item->title }}">
+                    <div class="item-body">
+                        <h2 class="title">{{ $item->title }}</h2>
+                        <p class="price">${{ $item->price }}</p>
+                        <button class="edit-button button_products" onclick="window.location.href='{{ route('product', ['id' => $item->id]) }}'">Edit</button>
+                        <button class="delete-button button_products" onclick="window.location.href='{{ route('product', ['id' => $item->id]) }}'">Delete</button>
+                        <button class="check-button button_products" onclick="window.location.href='{{ route('product', ['id' => $item->id]) }}'">Check</button>
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <div class="empty">
+                <p>Nothing here?</p>
+                <button class="add-button" onclick="window.location.href='{{ route('add_product') }}'">Add Product</button>
+            </div>
+        @endif
+    @elseif(isset($products_rated))
+        @if($products_rated->count() > 0)
+            @foreach($products_rated as $item)
+                <div class="item">
+                    <img class="photo" src="{{ asset('storage/images/' . $item->product->image) }}" alt="{{ $item->product->title }}">
+                    <div class="item-body">
+                        <h2 class="title">{{ $item->product->title }}</h2>
+                        <p class="price">${{ $item->product->price }}</p>
+                        <button class="edit-button button_products" onclick="window.location.href='{{ route('product', ['id' => $item->product->id]) }}'">Edit</button>
+                        <button class="delete-button button_products" onclick="window.location.href='{{ route('product', ['id' => $item->product->id]) }}'">Delete</button>
+                        <button class="check-button button_products" onclick="window.location.href='{{ route('product', ['id' => $item->product->id]) }}'">Check</button>
+                    </div>
+                </div>
+            @endforeach
+        @else
+            <div class="empty">
+                <p>Nothing here?</p>
+                <button class="add-button" onclick="window.location.href='{{ route('add_product') }}'">Add Product</button>
+            </div>
+        @endif
     @endif
+
 
     </div>
 

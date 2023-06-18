@@ -18,10 +18,6 @@ function closeImage() {
 document.addEventListener("DOMContentLoaded", function() {
     var heart = document.querySelector(".heart");
 
-    var isLiked = localStorage.getItem("isLiked");
-    if (isLiked === "true") {
-      heart.classList.add("is-active");
-    }
 
     heart.addEventListener("click", function() {
       heart.classList.toggle("is-active");

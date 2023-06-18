@@ -18,7 +18,7 @@ html
     transition:1s;
     animation:opacitychange 2s;
     width:70%;
-    height: 100px;
+    min-height: 100px;
     margin-top: -25px;
     margin-bottom:50px;
     margin-left:auto;
@@ -239,7 +239,7 @@ height: 650px;
 
 .menu_container{margin-top:25px;}
 .main_container{margin-top:-20px;}
-.logo_container{display: flex;justify-content: center;align-items: center;height: 10%;width: 100%; margin-top:5%;  margin-bottom:5%;}
+.logo_container{display: flex;justify-content: center;align-items: center;height: 10%;width: 100%; margin-top:0;}
 
 #sign_button{float:right;}
 
@@ -255,7 +255,7 @@ height: 650px;
     clear: both;
   }
 
-.choose_container {display: flex;justify-content: center;align-items: center;height: 20%;width: 100%; margin-top:5%;}
+.choose_container {display: flex;justify-content: center;align-items: center;height: 20%;width: 100%; margin-top:1%; margin-bottom:1%;}
 .menu_choose {margin: 0 10px;}
 
 }
@@ -264,7 +264,6 @@ height: 650px;
 {
 
 .menu_choose{font-size:15px; width:100px; }
-.logo_container{margin-bottom:10%;}
 .choose_container{margin-top:10%;}
 .photo:nth-child(n+1) {
     clear: both;

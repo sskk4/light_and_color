@@ -17,6 +17,8 @@ use App\Http\Controllers\MarketController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RatedController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\WorkController;
 
 Route::controller(MarketController::class)->group(function() {
 
@@ -30,6 +32,21 @@ Route::controller(MarketController::class)->group(function() {
 
 });
 
+Route::controller(AdminController::class)->group(function() {
+
+    Route::get('/admin', 'index')->name('admin_panel');
+
+});
+
+
+Route::controller(WorkController::class)->group(function(){
+
+Route::get('/work','index')->name('work');
+Route::get('/work/create','create')->name('add_work');
+Route::post('/work/create','createPost')->name('add_work');
+});
+
+
 Route::controller(RatedController::class)->group(function(){
 
     Route::post('/products/{id}/like', 'create')->name('add_like');
@@ -39,8 +56,10 @@ Route::controller(RatedController::class)->group(function(){
 
 Route::controller(ProfileController::class)->group(function(){
 
-    Route::get('/profile','show')->name('profile');
+    Route::get('/profile','show_products')->name('profile');
     Route::get('/profile/edit','update')->name('profile_update');
+    Route::get('/profile/sold','show_sold')->name('profile_sold');
+    Route::get('/profile/rated','show_rated')->name('profile_rated');
 
 });
 

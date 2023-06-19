@@ -34,7 +34,21 @@ Route::controller(MarketController::class)->group(function() {
 
 Route::controller(AdminController::class)->group(function() {
 
-    Route::get('/admin', 'index')->name('admin_panel');
+    Route::get('/admin', 'index')->name('admin');
+
+    Route::get('/admin/waiting/products', 'show_waiting_products')->name('admin_waiting_products');
+    Route::get('/admin/waiting/works', 'show_waiting_works')->name('admin_waiting_works');
+
+    Route::get('/admin/products/active', 'show_products_active')->name('admin_products_active');
+    Route::get('/admin/products/active/update', 'update_products_active')->name('admin_update_products_active');
+    Route::get('/admin/products/sold', 'show_products_sold')->name('admin_products_sold');
+
+    Route::get('/admin/works/active', 'show_works_active')->name('admin_works_active');
+    Route::get('/admin/works/old', 'show_works_old')->name('admin_works_old');
+
+    Route::get('/admin/users', 'show_users')->name('admin_users');
+
+    Route::get('/admin/orders', 'show_orders')->name('admin_orders');
 
 });
 

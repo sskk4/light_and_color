@@ -29,9 +29,13 @@
 
 @if (str_contains(request()->path(), 'work/create')) <link rel="stylesheet" href="{{ asset('css/add_product_style.css') }}">  @endif
 
+@if (str_contains(request()->path(), 'admin')) <link rel="stylesheet" href="{{ asset('css/admin_panel_style.css') }}">  @endif
+
 @if (request()->is('products/*'))
 <link rel="stylesheet" href="{{ asset('css/product_style.css') }}">
 <script src="{{ asset('js/script.js') }}"></script>
 @endif
+
+
 
 </head>

@@ -124,6 +124,33 @@ class WorkSeeder extends Seeder
             'accepted' => 0,
         ]);
 
+        Work::create([
+            'image_style' => "I'd like a traditional watercolor painting depicting a tranquil seaside scene with crashing waves and a picturesque lighthouse.",
+            'canvas_quality' => 1,
+            'paint_quality' => 2,
+            'painting_time' => 50,
+            'price' => 100,
+            'user_id' => 1,
+            'accepted' => 1,
+        ]);
+        Work::create([
+            'image_style' => "I'm commissioning a large-scale mural for a public space, showcasing local culture and celebrating diversity.",
+            'canvas_quality' => 1,
+            'paint_quality' => 2,
+            'painting_time' => 50,
+            'price' => 100,
+            'user_id' => 1,
+            'accepted' => 1,
+        ]);
+        Work::create([
+            'image_style' => "I'm interested in a series of small, minimalist paintings that explore the concept of balance and harmony",
+            'canvas_quality' => 1,
+            'paint_quality' => 2,
+            'painting_time' => 50,
+            'price' => 100,
+            'user_id' => 1,
+            'accepted' => 1,
+        ]);
 
     }
 }

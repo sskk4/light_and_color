@@ -24,7 +24,14 @@ class WorkController extends Controller
 
     public function create()
     {
-        return view('work.create');
+
+        if(Auth::check())
+        {
+            return view('work.create');
+        }
+
+        return redirect()->route('login');
+
     }
 
     public function createPost(AddWorkRequest $request)

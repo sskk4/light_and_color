@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     public function index()
     {
         return view('admin.dashboard');
@@ -32,6 +37,11 @@ class AdminController extends Controller
         $products_active = Product::where('sold', 0)->select('id','user_id','title')->get();
 
         return view('admin.dashboard', ['products_active' => $products_active]);
+    }
+
+    public function update_products_active()
+    {
+
     }
 
     public function show_products_sold()

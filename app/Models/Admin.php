@@ -15,4 +15,9 @@ class Admin extends Authenticatable implements AuthenticatableContract, Authoriz
 
     protected $fillable = ['name', 'email', 'password'];
 
+    public function isAdmin()
+{
+    return $this->email === 'admin@example.com';
+}
+
 }

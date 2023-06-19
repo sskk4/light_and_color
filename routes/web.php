@@ -32,7 +32,7 @@ Route::controller(MarketController::class)->group(function() {
 
 });
 
-Route::controller(AdminController::class)->group(function() {
+Route::middleware(['admin'])->controller(AdminController::class)->group( function() {
 
     Route::get('/admin', 'index')->name('admin');
 

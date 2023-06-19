@@ -14,7 +14,7 @@
     </div>
 
     <div class="choose_container">
-       <div class="menu_choose" href="{{route('logout')}}">   Logout </div>
+       <div class="menu_choose" onclick="window.location.href='{{ route('logout') }}'">   Logout </div>
     </div>
 </div>
 

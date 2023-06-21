@@ -19,6 +19,8 @@
 
 @if (str_contains(request()->path(), 'products/create')) <link rel="stylesheet" href="{{ asset('css/add_product_style.css') }}"> <link rel="stylesheet" href="{{ asset('css/buy_product_style.css') }}">   @endif
 
+
+
 @if (str_contains(request()->path(), 'products/buy')) <link rel="stylesheet" href="{{ asset('css/buy_product_style.css') }}">  @endif
 
 @if (str_contains(request()->path(), 'profile')) <link rel="stylesheet" href="{{ asset('css/profile_style.css') }}">  @endif
@@ -36,6 +38,9 @@
 <script src="{{ asset('js/script.js') }}"></script>
 @endif
 
+@if (request()->is('products/update/*'))
+<link rel="stylesheet" href="{{ asset('css/add_product_style.css') }}">
+@endif
 
 
 </head>

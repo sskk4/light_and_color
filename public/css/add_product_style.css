@@ -28,6 +28,7 @@ body
 
 
 
+
 .add_product_textarea
 {
     text-align:justify;
@@ -54,6 +55,11 @@ border-radius:10px;
 
 }
 
+.photo_edit
+{
+width:30%;
+}
+
 .alert {
     background: linear-gradient(to right, #a73737, #973232);
     color:#deebdb;
@@ -77,6 +83,12 @@ border-radius:10px;
     background:none;
     color:#1b211d;
     font-size:xx-large;
+}
+
+.product_panel_e
+{
+    width:50%;
+    margin:auto;
 }
 
 h2

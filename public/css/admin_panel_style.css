@@ -3,6 +3,73 @@ body {
     padding: 0;
   }
 
+.product
+{
+    width:50%;
+margin-left:auto;
+margin-right:auto;
+}
+
+.add_product_button
+{
+
+    cursor:pointer;
+    border-radius:100px;
+    width:150px;
+    border:solid #354430 1px;
+    height: 50px;
+    background-color:#40513B;
+    margin:20px;
+    color:#d4e9cf;
+    font-weight: bold;
+    transition:0.5s;
+}
+
+
+.add_product_textarea
+{
+    text-align:justify;
+    padding:20px;
+    width:300px;
+    resize: none;
+    margin-bottom:10px;
+    background-color: white;
+height: 70px;
+border:solid #354430 1px;
+color:black;
+border-radius:5px;
+}
+.add_product_input
+{
+    width:200px;
+margin-bottom:10px;
+text-align: center;
+background-color: white;
+height: 30px;
+border:solid #354430 1px;
+color:black;
+border-radius:10px;
+
+}
+
+
+.alert {
+    background: linear-gradient(to right, #a73737, #973232);
+    color:#deebdb;
+    margin: 20px;
+    height: 30px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:10px
+  }
+
+.photo
+{
+    width:40%;
+}
+
   .container {
     display: flex;
     flex-direction: column;

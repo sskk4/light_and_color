@@ -3,6 +3,8 @@ html, body {
     padding: 0;
   }
 
+
+
 .profile_main_container {
     text-align:center;
     animation:opacitychange 2.5s;
@@ -87,6 +89,11 @@ html, body {
     background-color: #6a7766;
   }
 
+  .active
+  {
+    background-color: #6a7766;
+  }
+
   .edit_button
   {
     cursor:pointer;
@@ -130,7 +137,7 @@ html, body {
   {
     cursor:pointer;
     width:100px;
-    border-radius:100px;
+    border-radius:20px;
     height: 30px;
     margin-top:5px;
     font-weight: bold;
@@ -148,7 +155,7 @@ html, body {
     font-weight: bold;
     transition:0.5s;
     background-color:#3e97e0;
-    border:solid #216890 1px;
+    border:solid #216890 2px;
   }
 
   .add-button:hover
@@ -156,29 +163,41 @@ html, body {
     background-color:#2f7ebf;
   }
 
-  .button_products:hover
-  {
-    filter: brightness(1.2);
-  }
+
 
   .edit-button
   {
     color:#20281e;
-    background-color:#f8ba45;
-    border:solid #dda53d 1px;
+    background-color:none;
+    border:solid #dab757 1px;
+  }
+
+  .edit-button:hover
+  {
+    background-color:#dab757;
   }
 
   .delete-button
   {
     color:#20281e;
-    background-color:#e44922;
-    border:solid #a93518 1px;
+    background-color:none;
+    border:solid #da5757 1px;
+  }
+
+  .delete-button:hover
+  {
+    background-color:#da5757;
   }
 
   .check-button
   {
-    background-color:#228de4;
-    border:solid #216890 1px;
+    background-color:none;
+    border:solid #5759da 1px;
+  }
+
+  .check-button:hover
+  {
+    background-color:#5759da;
   }
 
 

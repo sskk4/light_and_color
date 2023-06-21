@@ -8,21 +8,14 @@
 
         @include('shared.navbar')
 
-
-
-
-
         <div class="add_product_panel">
             <div class="product_panel_p">
-
-
 
          @if ($errors->any())
                 @foreach ($errors->all() as $error)
                 <div class="alert"> {{ $error }} </div>
                 @endforeach
     @endif
-
 
 
                 @if(Session::has('error'))

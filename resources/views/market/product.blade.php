@@ -13,7 +13,13 @@
 
     <div class="product_main_container">
 
+
+
         <div class="product">
+            @if (Session::has('success'))
+            <h1>{{ Session::get('success') }}</h1>
+        @endif
+
            <div class="product_image">
             <img src="{{asset ('storage/images/'. $p->image)}}" class="photo_p" alt="Zdjęcie produktu" onclick="showImage(this)">
            </div>
@@ -42,7 +48,7 @@
         @else
             @if(auth()->check() && $p->user_id == auth()->user()->id)
                 @if($p->sold == 0)
-                    <button class="edit_button" onclick="window.location.href=''">Edit</button>
+                    <button class="edit_button" onclick="window.location.href='{{route('product_update', ['id' => $p->id])}}'">Edit</button>
                 @endif
             @else
                 @if($p->sold == 0)

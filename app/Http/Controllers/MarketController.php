@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AddProductRequest;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\Rated;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -180,5 +181,74 @@ public function buyPost($id)
 }
 
 
+public function update($id)
+    {
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+
+        $product = Product::findOrFail($id);
+
+        if(Auth::check() && $product->user_id==$userId && $product->sold==0 )
+        {
+            return view('market.edit', compact('product'));
+        }
+
+        return redirect()->route('profile');
+    }
+
+    public function updatePost(Request $request, $id)
+    {
+        if (Auth::check()) {
+            $userId = Auth::id();
+            $user = User::findOrFail($userId);
+
+            $product = Product::findOrFail($id);
+
+            if ($product->user_id == $userId) {
+                $product->title = $request->input('title');
+                $product->price = $request->input('price');
+                $product->description = $request->input('description');
+
+                $product->save();
+
+                return redirect()->route('product', ['id' => $product->id])->with('success', 'Product updated successfully');
+            }
+        }
+
+        return redirect()->route('login');
+    }
+
+    public function destroy($id)
+    {
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+
+        $product = Product::findOrFail($id);
+
+        if(Auth::check() && $product->user_id==$userId )
+        {
+            return view('market.delete', compact('product'));
+        }
+
+        return redirect()->route('profile');
+    }
+
+    public function destroyPost($id)
+{
+    if (Auth::check()) {
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+
+        $product = Product::findOrFail($id);
+        $rated = Rated::where('product_id',$id);
+        if ($product->user_id == $userId) {
+            $rated->delete();
+            $product->delete();
+            return redirect()->route('profile')->with('success', 'Product deleted successfully');
+        }
+    }
+
+    return redirect()->route('login');
+}
 
 }

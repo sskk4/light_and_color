@@ -5,7 +5,7 @@ use App\Models\User;
 use App\Models\Work;
 use App\Models\Product;
 use App\Models\Order;
-
+use App\Models\Rated;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -39,8 +39,49 @@ class AdminController extends Controller
         return view('admin.dashboard', ['products_active' => $products_active]);
     }
 
-    public function update_products_active()
+
+
+    public function update_products_active($id)
     {
+
+        $product = Product::findOrFail($id);
+
+        return view('admin.edit.product', ['product' => $product]);
+    }
+
+
+
+    public function update_products_activePost(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+        $product->title = $request->input('title');
+        $product->price = $request->input('price');
+        $product->description = $request->input('description');
+
+        $product->save();
+
+        return redirect()->route('admin_products_active_update', ['id' => $product->id])->with('success', 'Product updated successfully!');
+
+    }
+
+
+    public function delete_products_active($id)
+    {
+        $product = Product::findOrFail($id);
+
+        return view('admin.delete.product', ['product' => $product]);
+    }
+
+    public function delete_products_activePost($id)
+{
+
+
+        $product = Product::findOrFail($id);
+        $rated = Rated::where('product_id',$id);
+
+            $rated->delete();
+            $product->delete();
+            return redirect()->route('admin_products_active')->with('success', 'Product deleted successfully');
 
     }
 
@@ -49,6 +90,8 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
+
+
     public function show_works_active()
     {
 
@@ -56,11 +99,6 @@ class AdminController extends Controller
         return view('admin.dashboard', ['works_active'=>$works_active]);
     }
 
-    public function show_works_old()
-    {
-        $works_old = Work::where('accepted',1)->select('id','user_id','image_style')->get();
-        return view('admin.dashboard', ['works_active'=>$works_old]);
-    }
 
     public function show_users()
     {

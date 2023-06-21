@@ -79,7 +79,7 @@
 
             <p class="price2 price">${{ $item->price }}</p>
 
-            <button class="buy-button" onclick="window.location.href=''">Accept</button>
+            <button class="buy-button" onclick="window.location.href='{{route('accept_work', ['id' => $item->id])}}'">Accept</button>
         </div>
     </div>
 @endforeach

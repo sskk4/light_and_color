@@ -15,7 +15,14 @@ class WorkController extends Controller
         $query = $request->input('query');
         $sortBy = $request->input('sort_by');
 
-        $worksQuery = Work::query();
+
+
+        if (auth()->check()) {
+            $userId = auth()->user()->id;
+            $worksQuery = Work::where('user_id', '!=', $userId)->where('accepted', 0);;
+        } else {
+            $worksQuery = $worksQuery = Work::where('accepted', 0);;
+        }
 
         if ($query) {
             $worksQuery->where('image_style', 'like', '%' . $query . '%');
@@ -96,6 +103,15 @@ class WorkController extends Controller
     {
         $work = Work::findOrFail($id);
 
+        if($work->accepted==1)
+        {
+            return redirect()->route('work');
+        }
+
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+
         if (!Auth::check()) {
             return redirect()->route('login');
         }
@@ -105,7 +121,23 @@ class WorkController extends Controller
         }
 
         return view('work.accept', [
-            'p' => $work
+            'work' => $work
         ]);
     }
+
+
+    public function acceptPost($id)
+{
+    $work = Work::findOrFail($id);
+
+    $user_id = Auth::user()->id;
+    $work->accepted = 1;
+    $work->receiver_user_id = $user_id;
+    $work->save();
+
+
+
+    return redirect()->back()->with('success', 'Accepted')->with('work', $work);;
+}
+
 }

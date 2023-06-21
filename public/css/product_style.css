@@ -5,6 +5,24 @@ body
     padding:0;
 }
 
+h1
+{
+    color:#517545;
+    text-align: center;
+    margin:20px;
+}
+
+.delete_h1
+{
+    color:#922f2f;
+}
+
+.delete_button
+{
+    background-color:#922f2f!important;
+    border:#662121!important;
+}
+
 .product_main_container {
 
     animation:opacitychange 2.5s;

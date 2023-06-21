@@ -17,22 +17,25 @@
             @if (request()->is('products/old'))<button class=" blue_dark add-product-button" onclick='window.location.href="{{route("products")}}"'>Buy</button> @endif
           </div>
 
-        <div class="top_bar_middle">
-          <div class="search-wrapper">
-            <form onsubmit="event.preventDefault();" role="search">
-              <input class="search" type="search" placeholder="Search..." autofocus required />
-              <button type="submit" class='@if (request()->is('products/old')) blue_dark @endif search_button'>Go</button>
+          <div class="top_bar_middle">
+            <div class="search-wrapper">
+                <form @if (request()->is('products')) action="{{ route('products') }}" @elseif (request()->is('products/old')) action="{{ route('old_products') }}" @endif method="GET" role="search">
+                    <input class="search" type="search" name="query" placeholder="Search..." autofocus required />
+                <button type="submit" class="@if (request()->is('products/old')) blue_dark @endif search_button">Go</button>
+              </form>
+            </div>
+            <form @if (request()->is('products')) action="{{ route('products') }}" @elseif (request()->is('products/old')) action="{{ route('old_products') }}" @endif method="GET">
+                <select name="sort_by" onchange="this.form.submit()">
+                  <option value="">Sort by</option>
+                  <option value="low_price" @if (request()->input('sort_by') === 'low_price') selected @endif>Low price</option>
+                  <option value="max_price" @if (request()->input('sort_by') === 'max_price') selected @endif>High price</option>
+                  <option value="newest" @if (request()->input('sort_by') === 'newest') selected @endif>Newest</option>
+                  <option value="oldest" @if (request()->input('sort_by') === 'oldest') selected @endif>Oldest</option>
+                  <option value="most_rated" @if (request()->input('sort_by') === 'most_rated') selected @endif>Most rated</option>
+                </select>
+              </form>
             </form>
           </div>
-          <select>
-            <option value="name">Sort by</option>
-            <option value="low_price">Low price</option>
-            <option value="max_price">High price</option>
-            <option value="date">Newest</option>
-            <option value="date">Oldest</option>
-            <option value="date">Most rated</option>
-          </select>
-        </div>
 
         <div class="top_bar_right">
             @guest

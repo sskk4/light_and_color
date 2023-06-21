@@ -12,14 +12,41 @@ use Illuminate\Support\Str;
 
 class MarketController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $query = $request->input('query');
+        $sortBy = $request->input('sort_by');
+
         if (auth()->check()) {
             $userId = auth()->user()->id;
-            $products = Product::where('sold', 0)->where('user_id', '!=', $userId)->get();
+            $productsQuery = Product::where('sold', 0)->where('user_id', '!=', $userId);
         } else {
-            $products = Product::where('sold', 0)->get();
+            $productsQuery = Product::where('sold', 0);
         }
+
+        if ($query) {
+            $productsQuery->where('title', 'like', '%' . $query . '%');
+        }
+
+        switch ($sortBy) {
+            case 'low_price':
+                $productsQuery->orderBy('price', 'asc');
+                break;
+            case 'max_price':
+                $productsQuery->orderBy('price', 'desc');
+                break;
+            case 'newest':
+                $productsQuery->orderBy('created_at', 'desc');
+                break;
+            case 'oldest':
+                $productsQuery->orderBy('created_at', 'asc');
+                break;
+            case 'most_rated':
+                $productsQuery->orderBy('rating', 'desc');
+                break;
+        }
+
+        $products = $productsQuery->get();
 
         return view('market.index', compact('products'));
     }
@@ -42,12 +69,39 @@ class MarketController extends Controller
 
 
 
-    public function show_old()
-    {
-        $products = Product::where('sold', 1)->get();
+    public function show_old(Request $request)
+{
+    $query = $request->input('query');
+    $sortBy = $request->input('sort_by');
 
-        return view('market.index', compact('products'));
+    $productsQuery = Product::where('sold', 1);
+
+    if ($query) {
+        $productsQuery->where('title', 'like', '%' . $query . '%');
     }
+
+    switch ($sortBy) {
+        case 'low_price':
+            $productsQuery->orderBy('price', 'asc');
+            break;
+        case 'max_price':
+            $productsQuery->orderBy('price', 'desc');
+            break;
+        case 'newest':
+            $productsQuery->orderBy('created_at', 'desc');
+            break;
+        case 'oldest':
+            $productsQuery->orderBy('created_at', 'asc');
+            break;
+        case 'most_rated':
+            $productsQuery->orderBy('rating', 'desc');
+            break;
+    }
+
+    $products = $productsQuery->get();
+
+    return view('market.index', compact('products'));
+}
 
 
 
@@ -67,6 +121,7 @@ class MarketController extends Controller
             'p' => $product
         ]);
     }
+
 
 
 public function buyPost($id)
@@ -121,7 +176,9 @@ public function buyPost($id)
     $product->image = $imageName;
     $product->save();
 
-    return redirect()->back()->with('success', 'Product added successfully!');
+    return redirect()->back()->with('success', 'Product added successfully!')->with('product', $product);
 }
+
+
 
 }

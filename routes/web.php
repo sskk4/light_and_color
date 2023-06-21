@@ -30,6 +30,7 @@ Route::controller(MarketController::class)->group(function() {
     Route::get('/products/buy/{id}','buy')->name('buy_product');
     Route::post('/products/buy/{id}','buyPost')->name('buy_product');
 
+
 });
 
 Route::middleware(['admin'])->controller(AdminController::class)->group( function() {

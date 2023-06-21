@@ -23,7 +23,7 @@ class AddWorkRequest extends FormRequest
     {
         return [
 
-            'image_style' => 'required|string|max:255',
+            'image_style' => 'required|string|min:5|max:255',
             'painting_time' =>'required|integer|min:1|max:60',
             'canvas_quality'=>'required|integer|min:0|max:3',
             'paint_quality'=>'required|integer|min:0|max:3',

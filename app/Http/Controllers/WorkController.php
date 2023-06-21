@@ -10,9 +10,30 @@ use Illuminate\Http\Request;
 
 class WorkController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $works = Work::all();
+        $query = $request->input('query');
+        $sortBy = $request->input('sort_by');
+
+        $worksQuery = Work::query();
+
+        if ($query) {
+            $worksQuery->where('image_style', 'like', '%' . $query . '%');
+        }
+
+        switch ($sortBy) {
+            case 'newest':
+                $worksQuery->orderBy('created_at', 'desc');
+                break;
+            case 'oldest':
+                $worksQuery->orderBy('created_at', 'asc');
+                break;
+            default:
+                $worksQuery->orderBy('created_at', 'desc'); // Domyślne sortowanie po najnowszych
+                break;
+        }
+
+        $works = $worksQuery->get();
 
         return view('work.index', compact('works'));
     }
@@ -43,19 +64,19 @@ class WorkController extends Controller
 
         $price = 0;
 
-        if ($canvas_quality == 1) {
+        if ($canvas_quality == 0) {
             $price += 10;
-        } elseif ($canvas_quality == 2) {
+        } elseif ($canvas_quality == 1) {
             $price += 20;
-        } elseif ($canvas_quality == 3) {
+        } elseif ($canvas_quality == 2) {
             $price += 50;
         }
 
-        if ($paint_quality == 1) {
+        if ($paint_quality == 0) {
             $price += 10;
-        } elseif ($paint_quality == 2) {
+        } elseif ($paint_quality == 1) {
             $price += 20;
-        } elseif ($paint_quality == 3) {
+        } elseif ($paint_quality == 2) {
             $price += 50;
         }
 
@@ -68,6 +89,23 @@ class WorkController extends Controller
         $work->price = $price;
         $work->save();
 
-        return redirect()->back()->with('success', 'Work painting order post to admin.');
+        return redirect()->back()->with('success', 'Work order added successfully!')->with('work', $work);;
+    }
+
+    public function accept($id)
+    {
+        $work = Work::findOrFail($id);
+
+        if (!Auth::check()) {
+            return redirect()->route('login');
+        }
+
+        if (Auth::user()->id === $work->user_id) {
+            abort(403);
+        }
+
+        return view('work.accept', [
+            'p' => $work
+        ]);
     }
 }

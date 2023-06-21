@@ -109,6 +109,16 @@ a
     background:none;
     color:#EDF1D6;
     font-size:xx-large;
+    border-radius: 100px;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+    margin: 20px;
+}
+
+.smaller_font
+{
+    font-size:medium;
 }
 
 .text_a

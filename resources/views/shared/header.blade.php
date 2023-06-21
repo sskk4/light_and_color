@@ -17,7 +17,7 @@
 
 @if (str_contains(request()->path(), 'products')) <link rel="stylesheet" href="{{ asset('css/market_style.css') }}">  @endif
 
-@if (str_contains(request()->path(), 'products/create')) <link rel="stylesheet" href="{{ asset('css/add_product_style.css') }}">  @endif
+@if (str_contains(request()->path(), 'products/create')) <link rel="stylesheet" href="{{ asset('css/add_product_style.css') }}"> <link rel="stylesheet" href="{{ asset('css/buy_product_style.css') }}">   @endif
 
 @if (str_contains(request()->path(), 'products/buy')) <link rel="stylesheet" href="{{ asset('css/buy_product_style.css') }}">  @endif
 

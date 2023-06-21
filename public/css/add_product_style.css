@@ -26,6 +26,8 @@ body
     margin:0;
 }
 
+
+
 .add_product_textarea
 {
     text-align:justify;
@@ -62,6 +64,12 @@ border-radius:10px;
     justify-content: center;
     align-items: center;
     padding:10px
+  }
+
+  .pp:hover
+  {
+      filter:brightness(1)!important;
+      cursor:auto!important;
   }
 
 .alert_green

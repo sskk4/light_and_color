@@ -237,9 +237,10 @@ height: 650px;
 @media screen and (max-width: 1553px){
 
 
-.menu_container{margin-top:25px;}
+.menu_container{margin-top:25px; margin-bottom:50px;}
 .main_container{margin-top:-20px;}
 .logo_container{display: flex;justify-content: center;align-items: center;height: 10%;width: 100%; margin-top:0;}
+
 
 #sign_button{float:right;}
 
@@ -263,7 +264,7 @@ height: 650px;
 @media screen and (max-width:770px)
 {
 
-.menu_choose{font-size:15px; width:100px; }
+.menu_choose{font-size:15px; width:100px;  }
 .choose_container{margin-top:10%;}
 .photo:nth-child(n+1) {
     clear: both;

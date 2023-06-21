@@ -16,18 +16,20 @@
         </div>
 
         <div class="top_bar_middle">
-          <div class="search-wrapper">
-            <form onsubmit="event.preventDefault();" role="search">
-              <input class="search" type="search" placeholder="Search..." autofocus required />
-              <button type="submit" class='search_button'>Go</button>
-            </form>
+            <div class="search-wrapper">
+              <form action="{{ route('work') }}" method="GET" >
+                <input class="search" type="search" name="query" placeholder="Search..." autofocus required />
+                <button type="submit" class='search_button'>Go</button>
+              </form>
+            </div>
+            <form action="{{ route('work') }}" method="GET" >
+            <select name="sort_by" onchange="this.form.submit()">
+              <option value="">Sort by</option>
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+            </select>
+        </form>
           </div>
-          <select>
-            <option value="name">Sort by</option>
-            <option value="date">Newest</option>
-            <option value="date">Oldest</option>
-          </select>
-        </div>
 
         <div class="top_bar_right">
             @guest

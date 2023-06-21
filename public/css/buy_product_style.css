@@ -5,28 +5,28 @@ body
     padding:0;
 }
 
-.product_main_container {
+.product_buy_main_container {
 
     animation:opacitychange 2.5s;
     padding-bottom: 20px;
     transition: 1s;
-    width: 100%;
+
+    width: 100%!important;
     height: 100%;
     background: linear-gradient(to right, #ece9e6, #ffffff);
     bottom: 0;
     right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    margin:0;
   }
 
 
   .product {
 
-    max-width: 600px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width:80%;
+    margin: 20 auto;
 
     padding: 20px;
     padding-top:40px;
@@ -101,7 +101,12 @@ body
 {
     color:#666;
 }
-
+.confirm
+{
+    text-align: center;
+    margin-left:auto;
+    margin-right: auto;
+}
 .buy_button
 {
   text-align: center;
@@ -132,12 +137,53 @@ body
     color: #333;
     width: 100%;
     margin: 0 auto;
-    padding: 20px;
+
     padding-top:40px;
     padding-bottom:40px;
     border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
 }
 
+.form_wrapper {
+    max-width: 300px;
+    margin: 0 auto;
+
+    border-radius: 5px;
+}
+
+.form_wrapper h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.form_label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form_label span {
+    display: inline-block;
+    width: 120px;
+    font-weight: bold;
+}
+
+.form_input,
+.form_textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    resize:none;
+}
+
+.form_button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

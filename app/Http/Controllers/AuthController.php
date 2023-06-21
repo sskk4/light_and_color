@@ -12,7 +12,7 @@ use App\Models\Admin;
 class AuthController extends Controller
 {
 
-    protected $guard = 'admin'; 
+    protected $guard = 'admin';
 
     public function __construct()
     {
@@ -42,7 +42,7 @@ class AuthController extends Controller
 
         $user->save();
 
-       return back()->with('success', 'Register successfully!');
+       return back()->with('success', '');
 
     }
 
@@ -52,17 +52,17 @@ class AuthController extends Controller
             'email' => $request->email,
             'password' => $request->password,
         ];
-    
+
         if (Auth::guard('admin')->attempt($credentials)) {
             $request->session()->regenerate();
-    
+
             return redirect()->route('admin');
         } elseif (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-    
+
             return redirect()->route('products');
         }
-    
+
         return back()->with('error', 'Wrong email or password.');
     }
 

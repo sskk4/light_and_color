@@ -52,6 +52,23 @@ border-radius:10px;
 
 }
 
+.delete_button
+{
+    width:150px;
+    height: 30px;
+    text-align: center;
+
+    background-color:#c55a5a;
+    border-radius: 30px;
+    border:2px solid #973232;
+    cursor:pointer;
+
+}
+
+.delete_button:hover
+{
+    background-color:#ac5151;
+}
 
 .alert {
     background: linear-gradient(to right, #a73737, #973232);
@@ -132,6 +149,7 @@ border-radius:10px;
   }
 
   .admin_panel_container {
+    text-align: center;
     color:black;
     animation: opacitychange 2.5s;
     padding-top: 20px;

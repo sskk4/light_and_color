@@ -30,7 +30,8 @@
             <div class="col col-1" data-label="User id">{{ $user->id }}</div>
             <div class="col col-2" data-label="Name">{{ $user->name }}</div>
             <div class="col col-3" data-label="Email">{{ $user->email }}</div>
-            <div class="col col-4"><button> Edit </button> <button> Delete </button>  </div>
+            <button onclick="window.location.href='{{route('admin_users_update', ['id' => $user->id])}}'"> Edit </button>
+            <button onclick="window.location.href='{{route('admin_users_delete', ['id' => $user->id])}}'"> Delete </button>
           </li>
           @endforeach
           @endif

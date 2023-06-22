@@ -56,8 +56,10 @@ Route::middleware(['admin'])->controller(AdminController::class)->group( functio
     Route::get('/admin/works/old', 'show_works_old')->name('admin_works_old');
 
     Route::get('/admin/users', 'show_users')->name('admin_users');
-    Route::get('/admin/users/update', 'update_users')->name('admin_users_update');
-    Route::post('/admin/users/update', 'update_users')->name('admin_users_update');
+    Route::get('/admin/users/update/{id}', 'update_users')->name('admin_users_update');
+    Route::post('/admin/users/update/{id}', 'update_usersPost')->name('admin_users_update_post');
+    Route::get('/admin/users/delete/{id}', 'delete_users')->name('admin_users_delete');
+    Route::delete('/admin/users/delete/{id}', 'delete_usersPost')->name('admin_users_delete_post');
 
 
     Route::get('/admin/orders', 'show_orders')->name('admin_orders');

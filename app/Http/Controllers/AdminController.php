@@ -119,4 +119,61 @@ class AdminController extends Controller
         return view('admin.dashboard', ['orders' => $orders]);
     }
 
+
+    public function update_users($id)
+    {
+        $users = User::FindOrFail($id);
+        return view('admin.edit.user', ['user' => $users]);
+    }
+
+
+    public function update_usersPost(Request $request, $id)
+    {
+        $users = User::FindOrFail($id);
+        $users->name = $request->input('name');
+        $users->email = $request->input('email');
+
+        $users->save();
+
+        return redirect()->route('admin_users_update', ['id' => $users->id])->with('success', 'User updated successfully!');
+    }
+
+
+    public function delete_users($id)
+    {
+        $users = User::FindOrFail($id);
+
+        return view('admin.delete.user', ['user' => $users]);
+    }
+
+    public function delete_usersPost($id)
+    {
+        $user = User::findOrFail($id);
+        $product = Product::where('user_id', $id)->get();
+        $rated = Rated::where('user_id', $id)->get();
+        $rated2 = Rated::where('product_id', $product->id)->get();
+        $order = Order::where('user_id', $id)->get();
+
+        foreach ($rated2 as $ratedItem) {
+            $ratedItem->delete();
+        }
+
+        foreach ($rated as $ratedItem) {
+            $ratedItem->delete();
+        }
+
+        foreach ($order as $orderItem) {
+            $orderItem->delete();
+        }
+
+        foreach($product as $productItem)
+        {
+            $productItem->delete();
+        }
+
+
+        $user->delete();
+
+        return redirect()->route('admin_users')->with('success', 'User deleted successfully');
+    }
 }

@@ -73,7 +73,7 @@ Route::get('/work','index')->name('work');
 Route::get('/work/create','create')->name('add_work');
 Route::get('/work/{id}','accept')->name('accept_work');
 Route::post('/work/{id}','acceptPost')->name('accept_work_post');
-Route::post('/work/create','createPost')->name('add_work');
+Route::post('/work/create','createPost')->name('add_work_post');
 });
 
 

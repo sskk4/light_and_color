@@ -69,6 +69,8 @@ class WorkController extends Controller
         $paint_quality = $request->input('paint_quality');
         $painting_time = $request->input('painting_time');
 
+
+
         $price = 0;
 
         if ($canvas_quality == 0) {
@@ -96,7 +98,7 @@ class WorkController extends Controller
         $work->price = $price;
         $work->save();
 
-        return redirect()->back()->with('success', 'Work order added successfully!')->with('work', $work);;
+        return redirect()->route('work')->with('success', 'Work order added successfully!')->with('work', $work);;
     }
 
     public function accept($id)

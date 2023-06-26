@@ -29,7 +29,7 @@
    <div class="smaller_font"> Now you can: <br>
      - Buy products <br>
      - Add your products <br>
-     - Send an order to paint a picture <br>
+     - Place an order for a painting <br>
      - Get inspiration! <br><br>
 
    </div>

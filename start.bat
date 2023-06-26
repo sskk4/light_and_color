@@ -10,4 +10,4 @@ call php artisan key:generate
 
 call php artisan storage:link
 
-code .
+call php artisan serve

@@ -71,7 +71,7 @@
 
 @else
     <h2> Add painting order </h2>
-    <form action="{{route('add_work')}}" method="POST">
+    <form action="{{ route('add_work_post') }}" method="POST">
         @csrf
         <div>
             <label for="image_style" class="text_product">Image style (description):</label><br>

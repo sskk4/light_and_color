@@ -122,28 +122,29 @@ class AdminController extends Controller
 
     public function update_users($id)
     {
-        $users = User::FindOrFail($id);
-        return view('admin.edit.user', ['user' => $users]);
+        $user = User::findOrFail($id);
+        return view('admin.edit.user', ['user' => $user]);
     }
 
 
     public function update_usersPost(Request $request, $id)
     {
-        $users = User::FindOrFail($id);
-        $users->name = $request->input('name');
-        $users->email = $request->input('email');
 
-        $users->save();
+        $user = User::findOrFail($id);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
 
-        return redirect()->route('admin_users_update', ['id' => $users->id])->with('success', 'User updated successfully!');
+        $user->save();
+
+        return redirect()->route('admin_users_update', ['id' => $user->id])->with('success', 'User updated successfully!');
     }
 
 
     public function delete_users($id)
     {
-        $users = User::FindOrFail($id);
+        $user = User::findOrFail($id);
 
-        return view('admin.delete.user', ['user' => $users]);
+        return view('admin.delete.user', ['user' => $user]);
     }
 
     public function delete_usersPost($id)
